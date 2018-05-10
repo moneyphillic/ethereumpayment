@@ -36,7 +36,7 @@ Check for web3 connection
 If it's alright in console we get output:  
 "Using web3 detected from external source like Metamask" and  
 "Connected: true"  
----
+
 Create changeRecipient() and changeAmount() functions to change  
 states of recipient and amount
 
@@ -49,7 +49,7 @@ will get default value of 300000 wei, 'from' will get value of current
 Metamask account address, 'to' will get value from address input and  
 'value' will be the amount input's value. Callback function will  
 return us transaction's hash.
----
+
 Afterward in render() create two input fields and one button. Fields  
 for recipient address, transaction sum and action button  
 
