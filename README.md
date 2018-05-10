@@ -20,7 +20,7 @@ $ npm start
 I will use plain css to create simple action button. 
 In webpack.config.js:  
 module: loaders: change **test: /\.scss$/** to **test: /\.css$/**  
-Then in src/app/index.js:
+Then in src/app/index.js:  
 import './../public/css/main.css';
 
 ## Front view
