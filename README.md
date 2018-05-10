@@ -53,7 +53,8 @@ return us transaction's hash.
 Afterward in render() create two input fields and one button. Fields  
 for recipient address, transaction sum and action button  
 
-#### TO DO
-Generate transaction's link to etherscan, where user will be able  
-to trace transaction's status.
+Create one more **a** tag after form block. It will listen for  
+result after send() and will output link to etherscan.io
+
+
 

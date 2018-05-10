@@ -12,22 +12,25 @@ class App extends React.Component {
 		this.state = {
 			recipient: '',
 			amount: 0,
-			setTransactionAddress: ''
+			transactionEtherscanAddress: '',
+			transactionLink: ''
 		}
 
 		this.changeRecipient = this.changeRecipient.bind(this)
 		this.changeAmount = this.changeAmount.bind(this)
 
-		if (typeof(web3) != 'undefined') {
-            console.log("Using web3 detected from external source like Metamask")
-            this.web3 = new Web3(web3.currentProvider)
-        } 
-        else {
-            console.log("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask")
-            this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
-        }
-
-        console.log('Connected: ' + web3.isConnected())
+		if (web3.isConnected()) {
+			if (typeof(web3) != 'undefined') {
+	            console.log("Connected using web3 detected from external source like Metamask")
+	            this.web3 = new Web3(web3.currentProvider)
+	        } 
+	        else {
+	            console.log("Connected. No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask")
+	            this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+	        }
+		} else {
+			console.log('Error: Not connected')
+		}
 	}
 
 	changeRecipient(address) {
@@ -36,10 +39,6 @@ class App extends React.Component {
 
 	changeAmount(val) {
 		this.setState({ amount: val.target.value })
-	}
-
-	setTransactionAddress() {
-
 	}
 
 	// send(address, amount) {
@@ -53,9 +52,12 @@ class App extends React.Component {
             if (err) {
                 console.log('Error: ' + err)
             }
-            this.setState({ transactionAddress: result })
-            console.log(result)
-         })
+
+            this.setState({ 
+            	transactionEtherscanAddress: 'https://ropsten.etherscan.io/tx/' + result,
+            	transactionLink: 'trace transaction',
+			})
+        })
 	}
 
 	render () {
@@ -72,7 +74,7 @@ class App extends React.Component {
 						<button onClick={ ()  => { this.send(this.state.recipient, this.state.amount) } }>Send</button>
 					</div>
 					<div className="block">
-						<a href=""></a>
+						<a href={ this.state.transactionEtherscanAddress } target="_blank">{ this.state.transactionLink }</a>
 					</div>
 				</div>
 			</div>

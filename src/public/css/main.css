@@ -19,6 +19,10 @@ body{
 	text-align: center;
 }
 
+.block {
+	padding-bottom: 5px;
+}
+
 .block label {
 	display: block;
 	padding: 0px 0px 15px 0px;
