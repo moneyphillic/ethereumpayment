@@ -9,7 +9,7 @@ with web3 module to generate and submit transactions.
 Create ethereumpayment directory. Run commands:  
 $ npm install -g reactjs-express-generator  
 $ regen  
-[I'm an inline-style link](https://www.npmjs.com/package/reactjs-express-generator)  
+[React Express generator](https://www.npmjs.com/package/reactjs-express-generator)  
   
 This will create skeletor of our front-end and back-end logic. 
 
@@ -18,7 +18,7 @@ $ npm start
 
 #### Styles
 I will use plain css to create simple action button. 
-In webpack.config.js:
+In webpack.config.js:  
 module: loaders: change **test: /\.scss$/** to **test: /\.css$/**
 Then in src/app/index.js:
 import './../public/css/main.css';
