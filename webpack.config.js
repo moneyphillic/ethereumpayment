@@ -44,7 +44,7 @@ var config = {
           plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
         }
       },{
-        test: /\.scss$/,
+        test: /\.css$/,
         loaders: ["style-loader","css-loader","sass-loader"]
       }
     ]
